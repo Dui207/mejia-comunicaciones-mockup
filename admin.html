@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de administración · CES</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%23d71920%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+  <div id="site-header" hidden></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+  </defs></svg>
+
+  <div class="admin-top">
+    <div class="wrap">
+      <div class="who"><img src="img/ces-logo.webp" alt="CES"> Panel de administración</div>
+      <a href="index.html">Ver el sitio →</a>
+    </div>
+  </div>
+  <div class="admin-note">Vista de ejemplo con datos ficticios. En el sitio real todo se guarda y se publica al momento.</div>
+
+  <main class="wrap">
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="tab is-active" role="tab" data-tab="solicitudes">Solicitudes de cotización</button>
+      <button class="tab" role="tab" data-tab="productos">Productos</button>
+      <button class="tab" role="tab" data-tab="inicio">Inicio y anuncios</button>
+    </div>
+
+    <!-- SOLICITUDES -->
+    <section class="panel" id="panel-solicitudes">
+      <div class="stat-row">
+        <div class="stat"><b>3</b><small>Nuevas</small></div>
+        <div class="stat"><b>2</b><small>En seguimiento</small></div>
+        <div class="stat"><b>14</b><small>Respondidas este mes</small></div>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th>Folio</th><th>Empresa</th><th>Equipos</th><th>Fecha</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>COT-2041</strong></td><td>Seguridad Integral del Centro<br><small>Laura Méndez · laura@ejemplo.com</small></td><td>10 × HP-786 UL913, 10 × Base cargadora</td><td>20 nov</td><td><span class="badge b-new">Nueva</span></td></tr>
+            <tr><td><strong>COT-2040</strong></td><td>Hotel Mirador<br><small>Carlos Reyes · carlos@ejemplo.com</small></td><td>25 × TC-320, 25 × Antena UHF</td><td>20 nov</td><td><span class="badge b-new">Nueva</span></td></tr>
+            <tr><td><strong>COT-2039</strong></td><td>Logística del Bajío<br><small>Ana Torres · ana@ejemplo.com</small></td><td>6 × HM-786, 1 × HR-656</td><td>19 nov</td><td><span class="badge b-new">Nueva</span></td></tr>
+            <tr><td><strong>COT-2038</strong></td><td>Constructora Norte<br><small>Jorge Salas · jorge@ejemplo.com</small></td><td>15 × HP-50X</td><td>18 nov</td><td><span class="badge b-wait">En seguimiento</span></td></tr>
+            <tr><td><strong>COT-2037</strong></td><td>Colegio San Rafael<br><small>Marta Ibarra · marta@ejemplo.com</small></td><td>12 × TC-508</td><td>17 nov</td><td><span class="badge b-done">Respondida</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="panel" id="panel-productos" hidden>
+      <div class="panel-tools">
+        <input type="search" id="p-search" placeholder="Buscar producto…" class="field" style="padding:10px 12px;border:2px solid var(--line);border-radius:8px;min-width:240px" aria-label="Buscar producto">
+        <button type="button" class="btn btn-red btn-sm" id="new-btn">+ Nuevo producto</button>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead><tr><th></th><th>Producto</th><th>Categoría</th><th>Tecnología</th><th>Visible</th><th></th></tr></thead>
+          <tbody id="p-rows"></tbody>
+        </table>
+      </div>
+
+      <form class="admin-form" id="p-form" hidden style="margin-top:28px" onsubmit="return false">
+        <h2 class="full" style="font-size:1.2rem;color:var(--navy)" id="p-form-title">Producto</h2>
+        <label class="field">Modelo<input id="pf-nombre"></label>
+        <label class="field">Categoría<select id="pf-cat"></select></label>
+        <label class="field">Tecnología<select id="pf-tec"><option>Analógico</option><option>Digital DMR</option><option>PoC</option><option>—</option></select></label>
+        <label class="field">Potencia<input id="pf-pot"></label>
+        <label class="field full">Resumen<textarea id="pf-res"></textarea></label>
+        <div class="full">
+          <div class="field" style="margin-bottom:8px">Fotos</div>
+          <div class="photo-grid" id="pf-photos"></div>
+          <div class="drop" style="margin-top:12px"><svg class="i"><use href="#i-image"/></svg><span>Arrastra fotos aquí o haz clic para subirlas</span></div>
+        </div>
+        <div class="full" style="display:flex;gap:10px">
+          <button type="button" class="btn btn-red" id="p-save">Guardar</button>
+          <button type="button" class="btn btn-line" id="p-cancel">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- INICIO -->
+    <section class="panel" id="panel-inicio" hidden>
+      <div class="admin-form">
+        <h2 class="full" style="font-size:1.2rem;color:var(--navy)">Anuncio y portada</h2>
+        <label class="field full">Banner de anuncio<input value="Catálogo 2026 ya disponible · Pide tu cotización"></label>
+        <label class="field">Mostrar desde<input type="date" value="2026-11-01"></label>
+        <label class="field">Hasta<input type="date" value="2026-12-31"></label>
+        <label class="field full">Título de la portada<input value="Lo mejor para tu comunicación"></label>
+        <label class="field full">Texto de la portada<textarea>Radios portátiles, móviles, repetidores y accesorios para tu negocio o tu canal de distribución.</textarea></label>
+        <div class="full"><div class="field" style="margin-bottom:8px">Imagen de portada</div>
+          <div class="drop"><svg class="i"><use href="#i-image"/></svg><span>Cambiar imagen</span></div></div>
+        <div class="full"><button type="button" class="btn btn-red" id="home-save">Guardar cambios</button></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="productos.js"></script>
+  <script>
+    const $ = (s, p = document) => p.querySelector(s);
+    const $$ = (s, p = document) => [...p.querySelectorAll(s)];
+    const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 2200); };
+
+    // Pestañas
+    $("#tabs").addEventListener("click", (e) => {
+      const tab = e.target.closest(".tab"); if (!tab) return;
+      $$(".tab").forEach((t) => t.classList.toggle("is-active", t === tab));
+      $$(".panel").forEach((p) => (p.hidden = p.id !== "panel-" + tab.dataset.tab));
+    });
+
+    // Tabla de productos
+    const hidden = new Set(["pd416"]);
+    function rows() {
+      const q = $("#p-search").value.trim().toLowerCase();
+      $("#p-rows").innerHTML = PRODUCTS.filter((p) => !q || p.nombre.toLowerCase().includes(q)).map((p) => `
+        <tr>
+          <td><div class="t-thumb">${p.img ? `<img src="${p.img}" alt="">` : ""}</div></td>
+          <td><strong>${p.nombre}</strong><br><small>${p.potencia}</small></td>
+          <td>${findCategory(p.cat).corto}</td><td>${p.tec}</td>
+          <td><span class="badge ${hidden.has(p.id) ? "b-off" : "b-done"}">${hidden.has(p.id) ? "Oculto" : "Publicado"}</span></td>
+          <td><button type="button" class="btn btn-line btn-sm" data-edit="${p.id}">Editar</button></td>
+        </tr>`).join("");
+    }
+    $("#p-search").addEventListener("input", rows);
+    $("#pf-cat").innerHTML = CATEGORIES.map((c) => `<option value="${c.id}">${c.nombre}</option>`).join("");
+
+    function openForm(p) {
+      $("#p-form").hidden = false;
+      $("#p-form-title").textContent = p ? "Editar " + p.nombre : "Nuevo producto";
+      $("#pf-nombre").value = p ? p.nombre : "";
+      $("#pf-cat").value = p ? p.cat : CATEGORIES[0].id;
+      $("#pf-tec").value = p ? p.tec : "Analógico";
+      $("#pf-pot").value = p ? p.potencia : "";
+      $("#pf-res").value = p ? p.resumen : "";
+      $("#pf-photos").innerHTML = (p ? p.galeria : []).map((f) => `<div class="photo"><img src="${f}" alt=""><button type="button" aria-label="Quitar foto"><svg class="i"><use href="#i-trash"/></svg></button></div>`).join("");
+      $("#p-form").scrollIntoView({ behavior: "smooth" });
+    }
+    $("#p-rows").addEventListener("click", (e) => { const b = e.target.closest("[data-edit]"); if (b) openForm(findProduct(b.dataset.edit)); });
+    $("#new-btn").addEventListener("click", () => openForm(null));
+    $("#p-cancel").addEventListener("click", () => ($("#p-form").hidden = true));
+    $("#p-save").addEventListener("click", () => { $("#p-form").hidden = true; toast("Producto guardado (ejemplo)"); });
+    $("#pf-photos").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) b.closest(".photo").remove(); });
+    $("#home-save").addEventListener("click", () => toast("Cambios guardados (ejemplo)"));
+    rows();
+  </script>
+</body>
+</html>

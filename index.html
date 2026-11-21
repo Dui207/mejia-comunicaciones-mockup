@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CES · Radiocomunicación Hytera para distribuidores</title>
+  <meta name="description" content="Distribuidor mayorista Hytera desde 1992. Catálogo de radios portátiles, móviles, repetidores y accesorios. Pide tu cotización.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%23d71920%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="inicio">
+
+  <div id="site-header"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Distribuidor mayorista Hytera</span>
+          <h1>Lo mejor para tu <em>comunicación</em></h1>
+          <p class="lead">Radios portátiles, móviles, repetidores y accesorios para tu negocio o tu canal de distribución. Arma tu lista y pide tu cotización: te respondemos con precio y existencias.</p>
+          <div class="hero-cta">
+            <a class="btn btn-red" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn-line" href="cotizacion.html">Pedir cotización</a>
+          </div>
+          <div class="hero-points">
+            <span><svg class="i"><use href="#i-check"/></svg> Más de 30 años en radiocomunicación</span>
+            <span><svg class="i"><use href="#i-check"/></svg> Capacitación para tu equipo</span>
+            <span><svg class="i"><use href="#i-check"/></svg> Costos para distribuidores</span>
+          </div>
+        </div>
+        <div class="hero-art"><img src="img/hero.webp" alt="Radios Hytera TC-508, HP-56X y PNC-360S" width="1000" height="1378"></div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Catálogo 2026</span><h2>Busca por tipo de equipo</h2></div>
+          <p>Las mismas secciones del catálogo impreso, ahora con fotos, fichas y lista de cotización.</p>
+        </div>
+        <div class="cat-grid" id="cat-grid"></div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="section alt" id="catalogo">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Productos</span><h2>Catálogo de equipos</h2></div>
+          <p>Ejemplo con 15 productos. En el sitio real se cargan todos los del catálogo desde el panel.</p>
+        </div>
+
+        <form class="filters" id="filters" onsubmit="return false">
+          <label class="field">Buscar
+            <input id="f-q" type="search" placeholder="Modelo o palabra: HP786, sumergible…">
+          </label>
+          <label class="field">Banda
+            <select id="f-banda"><option value="">Todas</option><option>UHF</option><option>VHF</option></select>
+          </label>
+          <label class="field">Tecnología
+            <select id="f-tec"><option value="">Todas</option><option>Analógico</option><option>Digital DMR</option><option>PoC</option></select>
+          </label>
+          <button type="button" class="btn btn-ghost" id="f-reset">Limpiar</button>
+        </form>
+
+        <div class="chips" id="chips"></div>
+        <div class="active-note" id="ind-note" hidden></div>
+        <p class="results-count" id="results-count"></p>
+        <div class="product-grid" id="product-grid"></div>
+        <div class="empty" id="empty" hidden>
+          <p><strong>No encontramos equipos con ese filtro.</strong></p>
+          <p>Prueba con otra categoría o limpia los filtros. Si no ves lo que buscas, <a href="cotizacion.html" style="color:var(--red);font-weight:700">pídelo en tu cotización</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIAS -->
+    <section class="section" id="industrias">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Soluciones</span><h2>Radios para cada industria</h2></div>
+          <p>Elige tu sector y te mostramos los equipos que mejor funcionan en él.</p>
+        </div>
+        <div class="ind-grid" id="ind-grid"></div>
+      </div>
+    </section>
+
+    <!-- MARCAS -->
+    <section class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Marcas</span><h2>Más allá de Hytera</h2></div>
+          <p>Marinos, aéreos, escáneres y accesorios de audio de las marcas líderes. Pregúntanos por ellos en tu cotización.</p>
+        </div>
+        <div class="brands">
+          <div class="brand-pill main"><b>Hytera</b><small>Portátiles, móviles, repetidores, PoC</small></div>
+          <div class="brand-pill"><b>Standard Horizon</b><small>Radios marinos</small></div>
+          <div class="brand-pill"><b>Yaesu</b><small>Radios aéreos</small></div>
+          <div class="brand-pill"><b>AOR</b><small>Escáneres profesionales</small></div>
+          <div class="brand-pill"><b>Rocket Science</b><small>Accesorios de audio</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ CES -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Por qué CES</span><h2>Apoyo para crecer con tu cliente</h2></div></div>
+        <div class="trust">
+          <div class="trust-item"><svg class="i"><use href="#i-shield"/></svg><div><h3>Desde 1992</h3><p>Más de 30 años desarrollando, implementando y comercializando radiocomunicación.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-cap"/></svg><div><h3>Capacitación</h3><p>Entrenamiento en persona o a distancia, según lo que necesite tu equipo.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-tag"/></svg><div><h3>Costos competitivos</h3><p>Precios para el canal de distribución, con la mejor tecnología disponible.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-chat"/></svg><div><h3>Atención personalizada</h3><p>Una persona real revisa tu lista y te propone la solución adecuada.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div><h2>¿Listo para cotizar?</h2><p>Agrega los equipos que necesitas y recibe tu cotización.</p></div>
+        <a class="btn btn-white" href="cotizacion.html">Ir a mi cotización</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="productos.js"></script>
+  <script src="site.js"></script>
+  <script src="catalogo.js"></script>
+</body>
+</html>
