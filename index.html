@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CES · Radiocomunicación Hytera para distribuidores</title>
-  <meta name="description" content="Distribuidor mayorista Hytera desde 1992. Catálogo de radios portátiles, móviles, repetidores y accesorios. Pide tu cotización.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%23d71920%27/%3E%3C/svg%3E">
+  <title>Mejía Comunicaciones · Radios Hytera, Motorola y Kenwood</title>
+  <meta name="description" content="Radios portátiles, móviles, PoC y accesorios Hytera, Motorola y Kenwood. Arma tu lista y pide tu cotización por formulario o WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%231b242d%27/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,20 +20,24 @@
     <section class="hero">
       <div class="wrap">
         <div>
-          <span class="eyebrow">Distribuidor mayorista Hytera</span>
-          <h1>Lo mejor para tu <em>comunicación</em></h1>
-          <p class="lead">Radios portátiles, móviles, repetidores y accesorios para tu negocio o tu canal de distribución. Arma tu lista y pide tu cotización: te respondemos con precio y existencias.</p>
+          <span class="eyebrow">Radiocomunicación para tu empresa</span>
+          <h1>El radio correcto para cada <em>operación</em></h1>
+          <p class="lead">Equipos Hytera, Motorola y Kenwood: portátiles, móviles, PoC y accesorios. Arma tu lista y pide tu cotización por formulario o directo por WhatsApp.</p>
           <div class="hero-cta">
             <a class="btn btn-red" href="#catalogo">Ver catálogo</a>
             <a class="btn btn-line" href="cotizacion.html">Pedir cotización</a>
           </div>
           <div class="hero-points">
-            <span><svg class="i"><use href="#i-check"/></svg> Más de 30 años en radiocomunicación</span>
-            <span><svg class="i"><use href="#i-check"/></svg> Capacitación para tu equipo</span>
-            <span><svg class="i"><use href="#i-check"/></svg> Costos para distribuidores</span>
+            <span><svg class="i"><use href="#i-check"/></svg> Marcas líderes</span>
+            <span><svg class="i"><use href="#i-check"/></svg> Asesoría para elegir tu equipo</span>
+            <span><svg class="i"><use href="#i-check"/></svg> Cotización por WhatsApp</span>
           </div>
         </div>
-        <div class="hero-art"><img src="img/hero.webp" alt="Radios Hytera TC-508, HP-56X y PNC-360S" width="1000" height="1378"></div>
+        <div class="hero-art" aria-hidden="true">
+          <img src="img/bp526-2.webp" alt="" width="500" height="500">
+          <img src="img/hp786-2.webp" alt="" width="500" height="500">
+          <img src="img/pnc360s-1.webp" alt="" width="500" height="500">
+        </div>
       </div>
     </section>
 
@@ -41,8 +45,8 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="eyebrow">Catálogo 2026</span><h2>Busca por tipo de equipo</h2></div>
-          <p>Las mismas secciones del catálogo impreso, ahora con fotos, fichas y lista de cotización.</p>
+          <div><span class="eyebrow">Catálogo</span><h2>Busca por tipo de equipo</h2></div>
+          <p>Portátiles, móviles, equipos por red celular, cámaras y accesorios, todo en un solo lugar.</p>
         </div>
         <div class="cat-grid" id="cat-grid"></div>
       </div>
@@ -53,18 +57,18 @@
       <div class="wrap">
         <div class="section-head">
           <div><span class="eyebrow">Productos</span><h2>Catálogo de equipos</h2></div>
-          <p>Ejemplo con 15 productos. En el sitio real se cargan todos los del catálogo desde el panel.</p>
+          <p>Ejemplo con 22 productos. En el sitio real se cargan todos desde el panel de administración.</p>
         </div>
 
         <form class="filters" id="filters" onsubmit="return false">
           <label class="field">Buscar
-            <input id="f-q" type="search" placeholder="Modelo o palabra: HP786, sumergible…">
+            <input id="f-q" type="search" placeholder="Modelo o palabra: HP786, sumergible, PoC…">
           </label>
-          <label class="field">Banda
-            <select id="f-banda"><option value="">Todas</option><option>UHF</option><option>VHF</option></select>
+          <label class="field">Marca
+            <select id="f-marca"><option value="">Todas</option><option>Hytera</option><option>Motorola</option><option>Kenwood</option></select>
           </label>
           <label class="field">Tecnología
-            <select id="f-tec"><option value="">Todas</option><option>Analógico</option><option>Digital DMR</option><option>PoC</option></select>
+            <select id="f-tec"><option value="">Todas</option><option>Analógico</option><option>Digital DMR</option><option>PoC</option><option>Multimodo</option></select>
           </label>
           <button type="button" class="btn btn-ghost" id="f-reset">Limpiar</button>
         </form>
@@ -75,7 +79,7 @@
         <div class="product-grid" id="product-grid"></div>
         <div class="empty" id="empty" hidden>
           <p><strong>No encontramos equipos con ese filtro.</strong></p>
-          <p>Prueba con otra categoría o limpia los filtros. Si no ves lo que buscas, <a href="cotizacion.html" style="color:var(--red);font-weight:700">pídelo en tu cotización</a>.</p>
+          <p>Prueba con otra categoría o limpia los filtros. Si no ves lo que buscas, <a href="cotizacion.html" style="color:var(--accent);font-weight:700">pídelo en tu cotización</a>.</p>
         </div>
       </div>
     </section>
@@ -95,28 +99,36 @@
     <section class="section alt">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="eyebrow">Marcas</span><h2>Más allá de Hytera</h2></div>
-          <p>Marinos, aéreos, escáneres y accesorios de audio de las marcas líderes. Pregúntanos por ellos en tu cotización.</p>
+          <div><span class="eyebrow">Marcas</span><h2>Las marcas que manejamos</h2></div>
+          <p>Elige entre tres de las marcas más reconocidas en radiocomunicación profesional.</p>
         </div>
         <div class="brands">
-          <div class="brand-pill main"><b>Hytera</b><small>Portátiles, móviles, repetidores, PoC</small></div>
-          <div class="brand-pill"><b>Standard Horizon</b><small>Radios marinos</small></div>
-          <div class="brand-pill"><b>Yaesu</b><small>Radios aéreos</small></div>
-          <div class="brand-pill"><b>AOR</b><small>Escáneres profesionales</small></div>
-          <div class="brand-pill"><b>Rocket Science</b><small>Accesorios de audio</small></div>
+          <a class="brand-pill" href="index.html?marca=Hytera#catalogo"><img src="img/marca-hytera.webp" alt="Hytera"><small>Portátiles, móviles, PoC, bodycam</small></a>
+          <a class="brand-pill" href="index.html?marca=Motorola#catalogo"><img src="img/marca-motorola.webp" alt="Motorola Solutions"><small>Serie MOTOTRBO</small></a>
+          <a class="brand-pill" href="index.html?marca=Kenwood#catalogo"><img src="img/marca-kenwood.webp" alt="Kenwood"><small>Radios portátiles</small></a>
         </div>
       </div>
     </section>
 
-    <!-- POR QUÉ CES -->
+    <!-- POR QUÉ -->
     <section class="section">
       <div class="wrap">
-        <div class="section-head"><div><span class="eyebrow">Por qué CES</span><h2>Apoyo para crecer con tu cliente</h2></div></div>
+        <div class="section-head"><div><span class="eyebrow">Por qué Mejía Comunicaciones</span><h2>Te ayudamos a elegir bien</h2></div></div>
         <div class="trust">
-          <div class="trust-item"><svg class="i"><use href="#i-shield"/></svg><div><h3>Desde 1992</h3><p>Más de 30 años desarrollando, implementando y comercializando radiocomunicación.</p></div></div>
-          <div class="trust-item"><svg class="i"><use href="#i-cap"/></svg><div><h3>Capacitación</h3><p>Entrenamiento en persona o a distancia, según lo que necesite tu equipo.</p></div></div>
-          <div class="trust-item"><svg class="i"><use href="#i-tag"/></svg><div><h3>Costos competitivos</h3><p>Precios para el canal de distribución, con la mejor tecnología disponible.</p></div></div>
-          <div class="trust-item"><svg class="i"><use href="#i-chat"/></svg><div><h3>Atención personalizada</h3><p>Una persona real revisa tu lista y te propone la solución adecuada.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-shield"/></svg><div><h3>Marcas confiables</h3><p>Hytera, Motorola Solutions y Kenwood: equipos probados en trabajo exigente.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-cap"/></svg><div><h3>Asesoría</h3><p>Te ayudamos a elegir el radio adecuado según tu operación y tu presupuesto.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-chat"/></svg><div><h3>Cotización por WhatsApp</h3><p>Manda tu lista armada y recibe respuesta directa de una persona.</p></div></div>
+          <div class="trust-item"><svg class="i"><use href="#i-tag"/></svg><div><h3>Precios competitivos</h3><p>Equipos y servicios de alta calidad con precios y oportunidades competitivas.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section class="section alt">
+      <div class="wrap">
+        <div class="mv">
+          <div><span class="eyebrow">Nuestra misión</span><h3>Calidad a precios competitivos</h3><p>Brindar productos y servicios de alta calidad con precios y oportunidades competitivas en el mercado.</p></div>
+          <div><span class="eyebrow">Nuestra visión</span><h3>Una alternativa viable en radiocomunicaciones</h3><p>Ser una alternativa viable en el ramo de las radiocomunicaciones ofreciendo precios competitivos, así como equipos y servicios de alta calidad mediante una mejora continua, brindando una efectiva integración con todas las marcas disponibles en el mercado.</p></div>
         </div>
       </div>
     </section>

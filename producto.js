@@ -1,15 +1,15 @@
-// CES · mockup · ficha de producto (producto.html?id=hp786)
+// Mejía Comunicaciones · mockup · ficha de producto (producto.html?id=hp786)
 
 const id = new URLSearchParams(location.search).get("id");
 const p = findProduct(id);
 
 if (!p) {
-  document.title = "Producto no encontrado · CES";
+  document.title = "Producto no encontrado · Mejía Comunicaciones";
   $("#crumbs").innerHTML = `<a href="index.html">Inicio</a>`;
-  $("#pdp").innerHTML = `<div class="empty"><p><strong>No encontramos ese producto.</strong></p><p><a href="index.html#catalogo" style="color:var(--red);font-weight:700">Volver al catálogo</a></p></div>`;
+  $("#pdp").innerHTML = `<div class="empty"><p><strong>No encontramos ese producto.</strong></p><p><a href="index.html#catalogo" style="color:var(--accent);font-weight:700">Volver al catálogo</a></p></div>`;
 } else {
   const cat = findCategory(p.cat);
-  document.title = `${p.nombre} · CES`;
+  document.title = `${p.nombre} · Mejía Comunicaciones`;
   $("#crumbs").innerHTML = `<a href="index.html">Inicio</a> / <a href="index.html?cat=${cat.id}#catalogo">${cat.nombre}</a> / ${p.nombre}`;
 
   const fotos = p.galeria.length ? p.galeria : [];

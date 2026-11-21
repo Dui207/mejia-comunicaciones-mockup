@@ -1,5 +1,5 @@
-// CES · mockup · lista de cotización y formulario de envío.
-// En el sitio real, el envío guarda la solicitud en el panel y avisa por correo al equipo de CES.
+// Mejía Comunicaciones · mockup · lista de cotización y formulario de envío.
+// En el sitio real, el envío guarda la solicitud en el panel y avisa por correo al equipo de Mejía Comunicaciones.
 
 const root = $("#quote-root");
 const escapeHTML = (s) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

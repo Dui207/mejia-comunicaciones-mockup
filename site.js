@@ -1,11 +1,11 @@
-// CES · mockup · cabecera, pie, íconos y avisos que comparten todas las páginas.
+// Mejía Comunicaciones · mockup · cabecera, pie, íconos y avisos que comparten todas las páginas.
 // Requiere productos.js cargado antes.
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
-// Datos de contacto de ejemplo (el teléfono sale del catálogo; confirmar con CES antes de publicar)
-const CONTACTO = { telefono: "55 5335 1100", whatsapp: "525553351100", correo: "ventas@ejemplo.com" };
+// Datos de contacto: el teléfono/WhatsApp sale de las publicaciones de Mejía Comunicaciones
+const CONTACTO = { telefono: "+52 55 7562 5709", whatsapp: "525575625709" };
 
 const ICONS = `
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -38,12 +38,12 @@ function renderHeader() {
   $("#site-header").innerHTML = `
     ${ICONS}
     <div class="topbar"><div class="wrap">
-      <span>Distribuidor mayorista Hytera · desde 1992</span>
+      <span>Radiocomunicación Hytera · Motorola · Kenwood</span>
       <span class="topbar-right"><a href="tel:${CONTACTO.telefono.replace(/\s/g, "")}">${icon("i-phone")} ${CONTACTO.telefono}</a></span>
     </div></div>
     <header class="site-header">
       <div class="wrap head-main">
-        <a class="brand" href="index.html" aria-label="CES, inicio"><img src="img/ces-logo.webp" alt="CES" width="56" height="56"></a>
+        <a class="brand" href="index.html" aria-label="Mejía Comunicaciones, inicio"><img src="img/mc-logo.webp" alt="Mejía Comunicaciones" width="56" height="56"></a>
         <form class="head-search" id="head-search" role="search">
           <input id="head-search-input" type="search" placeholder="Busca un modelo: HP786, TC-508, BD506…" aria-label="Buscar productos">
           <button type="submit" aria-label="Buscar">${icon("i-search")}</button>
@@ -68,8 +68,8 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="wrap foot-grid">
         <div>
-          <img class="foot-logo" src="img/ces-logo.webp" alt="CES" width="64" height="64">
-          <p>CES inició operaciones en 1992 en el mundo de las telecomunicaciones y la electrónica. Más de 30 años desarrollando, implementando y comercializando equipo de radiocomunicación.</p>
+          <img class="foot-logo" src="img/mc-logo.webp" alt="Mejía Comunicaciones" width="64" height="64">
+          <p>Mejía Comunicaciones: equipos de radiocomunicación para empresas, con asesoría para elegir el radio adecuado y cotización por WhatsApp.</p>
         </div>
         <div>
           <h4>Catálogo</h4>
@@ -86,11 +86,11 @@ function renderFooter() {
         </div>
         <div>
           <h4>Marcas</h4>
-          <ul><li>Hytera</li><li>Standard Horizon</li><li>Yaesu</li><li>AOR</li><li>Rocket Science</li></ul>
+          <ul><li>Hytera</li><li>Motorola Solutions</li><li>Kenwood</li></ul>
         </div>
       </div>
       <div class="wrap foot-base">
-        <span>Juntos haremos la diferencia · Mockup de ejemplo, no es el sitio final.</span>
+        <span>Mockup de ejemplo, no es el sitio final.</span>
         <span>Precios en cotización, sujetos a cambio sin previo aviso.</span>
       </div>
     </footer>
@@ -140,7 +140,7 @@ function cardHTML(p) {
     <article class="card" data-id="${p.id}">
       <a class="card-media" href="producto.html?id=${p.id}" aria-label="Ver ${p.nombre}">
         ${mediaHTML(p)}
-        ${p.destacado ? '<span class="tag">Destacado</span>' : ""}
+        ${p.nuevo ? '<span class="tag tag-new">Nuevo</span>' : p.destacado ? '<span class="tag">Destacado</span>' : ""}
       </a>
       <div class="card-body">
         <span class="brand-line">${p.marca} · ${findCategory(p.cat).corto}</span>

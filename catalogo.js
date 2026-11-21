@@ -1,4 +1,4 @@
-// CES · mockup · portada: categorías, filtros, productos e industrias.
+// Mejía Comunicaciones · mockup · portada: categorías, filtros, productos e industrias.
 const norm = (s) => s.toLowerCase().replace(/[-\s]/g, "");
 
 /* ---------- Categorías y industrias ---------- */
@@ -15,11 +15,12 @@ $("#ind-grid").innerHTML = INDUSTRIES.map((i) => {
 }).join("");
 
 /* ---------- Filtros ---------- */
-const state = { q: "", cat: "", banda: "", tec: "", ind: "" };
+const state = { q: "", cat: "", marca: "", tec: "", ind: "" };
 const params = new URLSearchParams(location.search);
 state.q = params.get("q") || "";
 state.cat = params.get("cat") || "";
 state.ind = params.get("ind") || "";
+state.marca = BRANDS.includes(params.get("marca")) ? params.get("marca") : "";
 
 const chipsEl = $("#chips");
 chipsEl.innerHTML =
@@ -30,7 +31,7 @@ function applyFilters() {
   const q = state.q.trim();
   const list = PRODUCTS.filter((p) => {
     if (state.cat && p.cat !== state.cat) return false;
-    if (state.banda && !p.bandas.includes(state.banda)) return false;
+    if (state.marca && p.marca !== state.marca) return false;
     if (state.tec && p.tec !== state.tec) return false;
     if (state.ind && !p.industrias.includes(state.ind)) return false;
     if (q) {
@@ -46,7 +47,7 @@ function applyFilters() {
 
   $$(".chip", chipsEl).forEach((c) => c.classList.toggle("is-active", c.dataset.cat === state.cat));
   $("#f-q").value = state.q;
-  $("#f-banda").value = state.banda;
+  $("#f-marca").value = state.marca;
   $("#f-tec").value = state.tec;
 
   const note = $("#ind-note");
@@ -64,10 +65,10 @@ chipsEl.addEventListener("click", (e) => {
   applyFilters();
 });
 $("#f-q").addEventListener("input", (e) => { state.q = e.target.value; applyFilters(); });
-$("#f-banda").addEventListener("change", (e) => { state.banda = e.target.value; applyFilters(); });
+$("#f-marca").addEventListener("change", (e) => { state.marca = e.target.value; applyFilters(); });
 $("#f-tec").addEventListener("change", (e) => { state.tec = e.target.value; applyFilters(); });
 $("#f-reset").addEventListener("click", () => {
-  Object.assign(state, { q: "", cat: "", banda: "", tec: "", ind: "" });
+  Object.assign(state, { q: "", cat: "", marca: "", tec: "", ind: "" });
   applyFilters();
 });
 
@@ -95,6 +96,6 @@ document.addEventListener("click", (e) => {
 });
 
 applyFilters();
-if (params.has("cat") || params.has("q") || params.has("ind")) {
+if (params.has("cat") || params.has("q") || params.has("ind") || params.has("marca")) {
   requestAnimationFrame(() => $("#catalogo").scrollIntoView());
 }
